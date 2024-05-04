@@ -1,0 +1,20 @@
+{
+    "Warszawa": {"lat": 52.2297, "lng": 21.0122, "distances": {}},
+    "Łódź": {"lat": 51.7592, "lng": 19.4559, "distances": {}},
+    "Kraków": {"lat": 50.0647, "lng": 19.9450, "distances": {}},
+    "Gdańsk": {"lat": 54.3520, "lng": 18.6466, "distances": {}},
+    "Poznań": {"lat": 52.4064, "lng": 16.9252, "distances": {}},
+    "Wrocław": {"lat": 51.1079, "lng": 17.0385, "distances": {}},
+    "Białystok": {"lat": 53.1325, "lng": 23.1688, "distances": {}},
+    "Bydgoszcz": {"lat": 53.1235, "lng": 18.0076, "distances": {}},
+    "Gorzów Wielkopolski": {"lat": 52.7368, "lng": 15.2280, "distances": {}},
+    "Katowice": {"lat": 50.2649, "lng": 19.0238, "distances": {}},
+    "Kielce": {"lat": 50.8661, "lng": 20.6286, "distances": {}},
+    "Lublin": {"lat": 51.2465, "lng": 22.5684, "distances": {}},
+    "Olsztyn": {"lat": 53.7784, "lng": 20.4801, "distances": {}},
+    "Opole": {"lat": 50.6756, "lng": 17.9213, "distances": {}},
+    "Rzeszów": {"lat": 50.0412, "lng": 21.9991, "distances": {}},
+    "Szczecin": {"lat": 53.4285, "lng": 14.5528, "distances": {}},
+    "Toruń": {"lat": 53.0138, "lng": 18.5984, "distances": {}},
+    "Zielona Góra": {"lat": 51.9356, "lng": 15.5064, "distances": {}}
+}

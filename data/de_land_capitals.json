@@ -1,0 +1,18 @@
+{
+    "Badenia-Wirtembergia": {"lat": 48.7758, "lng": 9.1829, "distances": {}},
+    "Bawaria": {"lat": 48.1351, "lng": 11.5820, "distances": {}},
+    "Berlin": {"lat": 52.5200, "lng": 13.4050, "distances": {}},
+    "Brandenburgia": {"lat": 52.3906, "lng": 13.0645, "distances": {}},
+    "Brema": {"lat": 53.0793, "lng": 8.8017, "distances": {}},
+    "Dolna Saksonia": {"lat": 52.3759, "lng": 9.7320, "distances": {}},
+    "Hamburg": {"lat": 53.5511, "lng": 9.9937, "distances": {}},
+    "Hesja": {"lat": 50.0782, "lng": 8.2390, "distances": {}},
+    "Meklemburgia-Pomorze Przednie": {"lat": 53.6355, "lng": 11.4013, "distances": {}},
+    "Nadrenia Północna-Westfalia": {"lat": 51.2277, "lng": 6.7735, "distances": {}},
+    "Nadrenia-Palatynat": {"lat": 49.9929, "lng": 8.2473, "distances": {}},
+    "Saara": {"lat": 49.2402, "lng": 6.9969, "distances": {}},
+    "Saksonia": {"lat": 51.0504, "lng": 13.7373, "distances": {}},
+    "Saksonia-Anhalt": {"lat": 52.1205, "lng": 11.6276, "distances": {}},
+    "Szlezwik-Holsztyn": {"lat": 54.3233, "lng": 10.1228, "distances": {}},
+    "Turyngia": {"lat": 50.9848, "lng": 11.0299, "distances": {}}
+}
