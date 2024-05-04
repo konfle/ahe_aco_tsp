@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wynik algorytmu mrówkowego</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="p-3 mb-2 bg-dark-subtle text-dark-emphasis">
+    <div class="container mt-5">
+        <h1 class="mb-3">Najlepsza ścieżka podróży</h1>
+        <ol>
+            {% for city in solution %}
+                <li>{{ city }}</li>
+            {% endfor %}
+        </ol>
+        <h5>Długość trasy: {{ '%.1f' | format(length) }}</h5>
+        <br>
+        <form action="/map" method="POST" target="_blank">
+            <input type="hidden" name="solution" value="{{ ','.join(solution) }}">
+            <input type="hidden" name="distances" value="{{ distances_json }}">
+            <button type="submit" class="btn btn-success">Wyświetl mapę</button>
+        </form>
+        <br>
+        <form action="/" method="GET">
+            <button type="submit" class="btn btn-primary">Powrót do formularza</button>
+        </form>
+    </div>
+</body>
+</html>
+
