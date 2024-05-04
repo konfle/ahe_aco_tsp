@@ -1,0 +1,46 @@
+# Pliki środowiskowe
+.env
+
+# Pliki cache
+__pycache__/
+
+# Katalogi utworzone przez użytkownika
+instance/
+
+# Pliki bazy danych
+*.db
+
+# Pliki bazy danych SQLite
+*.sqlite
+
+# Pliki bytecode Pythona
+*.pyc
+
+# Pliki kompilowane Pythona
+*.pyo
+
+# Katalog środowiska wirtualnego
+myenv/
+
+# Pliki logów
+*.log
+
+# Pliki debugowych plików
+debug.log
+
+# Katalog dołączonych plików
+uploads/
+
+# Pliki konfiguracyjne systemu Windows
+Thumbs.db
+ehthumbs.db
+
+# Pliki macOS
+.DS_Store
+
+# Katalog użytkownika w systemie macOS
+__MACOSX/
+
+# Pliki IDE
+.idea/
+.vscode/
