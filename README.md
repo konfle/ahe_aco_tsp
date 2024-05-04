@@ -16,7 +16,12 @@ która odwiedza wszystkie miasta dokładnie raz i wraca do miasta początkowego,
 ## Instalacja
 
 1. Sklonuj repozytorium na swój lokalny komputer.
-2. Zainstaluj wymagane biblioteki, uruchamiając pip install -r requirements.txt. (Zalecene użycie środowiska wirtualnego)
+2. Zainstaluj wymagane biblioteki, uruchamiając poniższą komend (Zalecene użycie środowiska wirtualnego):
+
+    ```shell
+    pip install -r requirements.txt
+    ```
+
 3. Uruchom aplikację, wykonując poniższą komendę z głównego katalogu projektu:
 
     ```shell
