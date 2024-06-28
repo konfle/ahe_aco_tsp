@@ -29,17 +29,17 @@ def haversine(lat1, lon1, lat2, lon2):
     Returns:
         float: Distance between points in kilometres.
     """
-    # Konwersja stopni na radiany
+    # Convert degrees to radians
     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
 
-    # Różnice szerokości i długości geograficznych
+    # Latitude and longitude differences
     dlat = lat2 - lat1
     dlon = lon2 - lon1
 
-    # Obliczanie odległości
+    # Distance calculation
     a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-    radius_of_earth = 6371  # Promień Ziemi w kilometrach
+    radius_of_earth = 6371  # Radius of the Earth in kilometers
     distance = radius_of_earth * c
 
     return distance
@@ -58,9 +58,9 @@ def calculate_distances(cities):
     for city1, data1 in cities.items():
         for city2, data2 in cities.items():
             if city1 != city2:
-                # Obliczanie odległości za pomocą funkcji haversine
+                # Calculating distances using the haversine function
                 dist = haversine(data1["lat"], data1["lng"], data2["lat"], data2["lng"])
-                # Zapisywanie odległości w słowniku miast
+                # Recording distances in the city dictionary
                 data1["distances"][city2] = dist
 
     return cities

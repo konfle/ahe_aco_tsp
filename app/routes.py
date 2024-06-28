@@ -27,7 +27,7 @@ def result():
     Returns:
         str: Results page template.
     """
-    # Pobieranie parametrów z formularza
+    # Retrieving parameters from a form
     num_ants = int(request.form["num_ants"])
     alpha = float(request.form["alpha"])
     beta = float(request.form["beta"])
@@ -35,19 +35,19 @@ def result():
     max_iterations = int(request.form["max_iterations"])
     max_stagnation_iterations = int(request.form["max_stagnation_iterations"])
 
-    # Pobieranie ścieżki do wybranego zestawu danych
+    # Retrieving the path to the selected dataset
     data_set_path = request.form["data_set"]
 
-    # Wczytywanie danych i obliczanie odległości między miastami
+    # Loading data and calculating distances between cities
     distances = load_data(data_set_path)
     distances = calculate_distances(distances)
 
-    # Wywołanie algorytmu mrówkowego z nowymi danymi
+    # Calling the ant algorithm with new data
     best_solution, best_solution_length = ant_colony_optimization(
         distances, num_ants, alpha, beta, evaporation_rate, max_iterations, max_stagnation_iterations
     )
 
-    # Konwersja odległości na JSON
+    # Convert distance to JSON
     distances_json = json.dumps(distances)
 
     return render_template("result.html",
@@ -64,7 +64,7 @@ def show_map():
     Returns:
         str: Template for the map page.
     """
-    # Pobieranie rozwiązania i odległości z formularza
+    # Retrieving the solution and distances from the form
     solution = request.form.get("solution")
     distances_json = request.form.get("distances")
 
@@ -72,41 +72,41 @@ def show_map():
     if not solution or not distances_json:
         abort(404)
 
-    # Przetwarzanie rozwiązania i odległości
+    # Solution and distance processing
     solution = solution.split(",")
     distances = json.loads(distances_json)
     solution.append(solution[0])
 
-    # Wybór miasta początkowego i wyznaczenie jego współrzędnych
+    # Selecting the starting city and determining its coordinates
     start_city = solution[0]
     center_lat = distances[start_city]["lat"]
     center_lng = distances[start_city]["lng"]
 
-    # Utworzenie mapy
+    # Creating a map
     solution_map = folium.Map(location=[center_lat, center_lng], zoom_start=6)
 
-    # Dodanie znaczników dla każdego miasta
+    # Adding tags for each city
     for city, data in distances.items():
         folium.Marker(location=[data["lat"], data["lng"]], popup=city).add_to(solution_map)
 
-    # Rysowanie linii między miastami
+    # Drawing lines between cities
     for i in range(len(solution) - 1):
         current_city = solution[i]
         next_city = solution[i + 1]
 
-        # Wybór koloru linii w zależności od położenia
+        # Choice of line color depending on location
         if i == 0:
-            color = "green"  # Pierwsze połączenie
+            color = "green"  # First connection
         elif i == len(solution) - 2:
-            color = "red"  # Ostatnie połączenie
+            color = "red"  # Last connection
         else:
-            color = "blue"  # Połączenia pośrednie
+            color = "blue"  # Indirect connections
 
-        # Wyznaczenie współrzędnych punktu docelowego
+        # Determining the coordinates of the destination point
         dest_lat = (distances[current_city]["lat"] + distances[next_city]["lat"]) / 2
         dest_lng = (distances[current_city]["lng"] + distances[next_city]["lng"]) / 2
 
-        # Dodanie linii
+        # Adding a lines
         folium.PolyLine(locations=[[distances[current_city]["lat"], distances[current_city]["lng"]],
                                     [dest_lat, dest_lng]],
                         color=color).add_to(solution_map)
@@ -115,8 +115,8 @@ def show_map():
                                     [distances[next_city]["lat"], distances[next_city]["lng"]]],
                         color=color).add_to(solution_map)
 
-    # Zapisanie mapy do pliku
+    # Saving the map to a file
     solution_map.save("templates/map.html")
 
-    # Renderowanie szablonu z mapą
+    # Rendering a template with a map
     return render_template("map.html")

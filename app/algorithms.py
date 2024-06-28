@@ -37,29 +37,30 @@ def ant_colony_optimization(distances,
             visited_cities = [current_city]
 
             while len(visited_cities) < num_cities:
-                probabilities = []  # Lista prawdopodobieństw wyboru kolejnego miasta
+                probabilities = []  # List of probabilities of selecting the next city
                 total_probability = 0.0
 
-                # Obliczanie prawdopodobieństw wyboru kolejnego miasta przez mrówkę
+                # Calculating the probabilities of an ant selecting the next city
                 for next_city in cities:
                     if next_city not in visited_cities:
                         pheromone = pheromones[cities.index(current_city)][
-                            cities.index(next_city)]  # Stężenie feromonu na danej trasie
+                            cities.index(next_city)]  # Pheromone concentration on a given route
                         distance = distances[current_city]["distances"][
-                            next_city]  # Odległość między aktualnym a następnym miastem
-                        heuristic = 1.0 / distance  # Heurystyka - im mniejsza odległość, tym większa wartość heurystyki
+                            next_city]  # Distance between the current city and the next city
+                        # Heuristics - the smaller the distance, the greater the heuristic value
+                        heuristic = 1.0 / distance
                         probability = (pheromone ** alpha) * (
-                                    heuristic ** beta)  # Obliczenie prawdopodobieństwa wyboru danego miasta
+                                    heuristic ** beta)  # Calculation of the probability of choosing a given city
                         probabilities.append(
-                            (next_city, probability))  # Dodanie pary (miasto, prawdopodobieństwo) do listy
-                        total_probability += probability  # Aktualizacja sumy prawdopodobieństw
+                            (next_city, probability))  # Adding a pair (city, probability) to the list
+                        total_probability += probability  # Update the sum of probabilities
 
-                # Normalizacja prawdopodobieństw
+                # Normalization of probabilities
                 probabilities = [(city, prob / total_probability) for city, prob in probabilities]
                 selected_next_city = random.choices(
                     [city for city, _ in probabilities],
                     weights=[prob for _, prob in probabilities]
-                )[0]  # Wybór kolejnego miasta na podstawie wag
+                )[0]  # Selection of the next city based on weights
 
                 visited_cities.append(selected_next_city)
                 current_city = selected_next_city
@@ -71,13 +72,13 @@ def ant_colony_optimization(distances,
                 best_solution = current_solution
                 best_solution_length = current_solution_length
 
-            # Dodawanie feromonów na podstawie aktualnego rozwiązania danej mrówki
+            # Adding pheromones based on the current solution of a given ant
             for i in range(num_cities):
                 current_city = current_solution[i]
                 next_city = current_solution[(i + 1) % num_cities]
                 pheromones[cities.index(current_city)][cities.index(next_city)] += 1.0 / current_solution_length
 
-        # Aktualizacja feromonów na trasie najlepszego rozwiązania
+        # Pheromone update along the route of the best solution
         for i in range(num_cities):
             current_city = best_solution[i]
             next_city = best_solution[(i + 1) % num_cities]
@@ -102,7 +103,7 @@ def calculate_path_length(path, distances):
     length = 0
     for i in range(len(path) - 1):
         length += distances[path[i]]["distances"][path[i + 1]]
-    # Dodanie odległości z ostatniego do pierwszego miasta (powrót do punktu startowego)
+    # Adding the distance from the last city to the first city (return to the starting point)
     length += distances[path[-1]]["distances"][path[0]]
 
     return length
