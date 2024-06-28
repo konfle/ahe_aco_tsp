@@ -11,10 +11,10 @@ bp = Blueprint("routes", __name__)
 @bp.route("/")
 def index():
     """
-    Renderuje stronę główną.
+    Renders the home page.
 
     Returns:
-        str: Szablon strony głównej.
+        str: Home page template.
     """
     return render_template("index.html")
 
@@ -22,10 +22,10 @@ def index():
 @bp.route("/result", methods=["POST"])
 def result():
     """
-    Renderuje stronę z wynikami algorytmu mrówkowego.
+    Renders a page with the results of the ant algorithm.
 
     Returns:
-        str: Szablon strony z wynikami.
+        str: Results page template.
     """
     # Pobieranie parametrów z formularza
     num_ants = int(request.form["num_ants"])
@@ -59,10 +59,10 @@ def result():
 @bp.route("/map", methods=["POST"])
 def show_map():
     """
-    Renderuje mapę z trasą komiwojażera.
+    Renders a map with the route of the comedian.
 
     Returns:
-        str: Szablon strony z mapą.
+        str: Template for the map page.
     """
     # Pobieranie rozwiązania i odległości z formularza
     solution = request.form.get("solution")

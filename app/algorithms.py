@@ -10,19 +10,19 @@ def ant_colony_optimization(distances,
                             max_iterations,
                             max_stagnation_iterations):
     """
-    Implementacja optymalizacji kolonii mrówek dla problemu komiwojażera.
+    Implementation of ant colony optimisation for the traveling salesman problem.
 
     Args:
-        distances (dict): Słownik odległości między miastami.
-        num_ants (int): Liczba mrówek.
-        alpha (float): Współczynnik wpływu feromonu na wybór kolejnego miasta.
-        beta (float): Współczynnik wpływu odległości na wybór kolejnego miasta.
-        evaporation_rate (float): Współczynnik parowania feromonu.
-        max_iterations (int): Maksymalna liczba iteracji.
-        max_stagnation_iterations (int): Maksymalna liczba iteracji bez poprawy najlepszego rozwiązania.
+        distances (dict): Dictionary of distances between cities.
+        num_ants (int): Number of ants.
+        alpha (float): Pheromone influence factor for selecting the next city.
+        beta (float): Coefficient of the effect of distance on the selection of the next city.
+        evaporation_rate (float): The evaporation rate of the pheromone.
+        max_iterations (int): Maximum number of iterations.
+        max_stagnation_iterations (int): Maximum number of iterations without improving the best solution.
 
     Returns:
-        tuple: Krotka zawierająca najlepsze rozwiązanie i jego długość.
+        tuple: A tuple containing the best solution and its length.
     """
     cities = list(distances.keys())
     num_cities = len(cities)
@@ -90,14 +90,14 @@ def ant_colony_optimization(distances,
 
 def calculate_path_length(path, distances):
     """
-    Oblicza długość trasy dla danego rozwiązania.
+    Calculates the route length for a given solution.
 
     Args:
-        path (list): Lista miast w kolejności odwiedzania.
-        distances (dict): Słownik odległości między miastami.
+        path (list): List of cities in order of visit.
+        distances (dict): Dictionary of distances between cities.
 
     Returns:
-        float: Długość trasy.
+        float: The length of the route.
     """
     length = 0
     for i in range(len(path) - 1):

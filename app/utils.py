@@ -4,13 +4,13 @@ import math
 
 def load_data(data_set_path):
     """
-    Wczytuje dane z pliku JSON.
+   Loads data from a JSON file.
 
     Args:
-        data_set_path (str): Ścieżka do pliku JSON.
+        data_set_path (str): Path to the JSON file.
 
     Returns:
-        dict: Dane wczytane z pliku JSON.
+        dict: Data loaded from the JSON file.
     """
     with open(data_set_path, "r", encoding="utf-8") as file:
         return json.load(file)
@@ -18,16 +18,16 @@ def load_data(data_set_path):
 
 def haversine(lat1, lon1, lat2, lon2):
     """
-    Oblicza odległość między dwoma punktami o zadanych współrzędnych geograficznych (szerokość i długość).
+    Calculates the distance between two points with given geographical coordinates (latitude and longitude).
 
     Args:
-        lat1 (float): Szerokość geograficzna pierwszego punktu w stopniach.
-        lon1 (float): Długość geograficzna pierwszego punktu w stopniach.
-        lat2 (float): Szerokość geograficzna drugiego punktu w stopniach.
-        lon2 (float): Długość geograficzna drugiego punktu w stopniach.
+        lat1 (float): Latitude of the first point in degrees.
+        lon1 (float): Longitude of the first point in degrees.
+        lat2 (float): Latitude of the second point in degrees.
+        lon2 (float): Longitude of the second point in degrees.
 
     Returns:
-        float: Odległość między punktami w kilometrach.
+        float: Distance between points in kilometres.
     """
     # Konwersja stopni na radiany
     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
@@ -47,13 +47,13 @@ def haversine(lat1, lon1, lat2, lon2):
 
 def calculate_distances(cities):
     """
-    Oblicza odległości między wszystkimi parami miast za pomocą funkcji haversine i zapisuje je w słowniku.
+    Calculates the distances between all pairs of cities using the haversine function and stores them in the dictionary.
 
     Args:
-        cities (dict): Słownik miast zawierający ich współrzędne geograficzne.
+        cities (dict): A dictionary of cities containing their geographical coordinates.
 
     Returns:
-        dict: Zaktualizowany słownik miast zawierający odległości między nimi.
+        dict: An updated dictionary of cities containing the distances between them.
     """
     for city1, data1 in cities.items():
         for city2, data2 in cities.items():
