@@ -1,29 +1,28 @@
-# Opis Struktury Danych
+# Data Structure Description
 
-Ten projekt zawiera struktury danych przechowujące informacje o miastach wraz z ich współrzędnymi geograficznymi.
+This project contains data structures that store information about cities along with their geographic coordinates.
 
-## Struktura Danych
+## Data Structure
 
-Struktura danych jest reprezentowana jako słownik (format pliku JSON), gdzie kluczem jest nazwa miasta, 
-a wartością jest słownik zawierający jego współrzędne geograficzne oraz odległości do innych miast w strukturze danych.
+The data structure is represented as a dictionary (JSON file format), where the key is the city name, and the value
+is a dictionary containing its geographical coordinates and distances to other cities in the data structure.
 
-Przykładowy fragment struktury danych:
+An example fragment of a data structure:
 
 ```json
 {
-    "Badenia-Wirtembergia": {"lat": 48.7758, "lng": 9.1829, "distances": {}},
-    "Bawaria": {"lat": 48.1351, "lng": 11.5820, "distances": {}},
+    "Baden-Württemberg": {"lat": 48.7758, "lng": 9.1829, "distances": {}},
+    "Bavaria": {"lat": 48.1351, "lng": 11.5820, "distances": {}},
     "Berlin": {"lat": 52.5200, "lng": 13.4050, "distances": {}},
-    ...
 }
 ```
 
-## Dodawanie Nowych Danych
+## Adding New Data
 
-Aby dodać nowe dane do istniejącej struktury, należy utworzyć nowy klucz z nazwą nowego regionu i wypełnić go 
-odpowiednimi danymi. Następnie, jeśli to konieczne, odległości do innych miast należy uzupełnić ręcznie lub
-użyć odpowiedniej funkcji obliczającej odległości.
+To add new data to an existing structure, create a new key with the name of the new region and fill it in
+appropriate data. Then, if necessary, distances to other cities should be completed manually or
+use the appropriate distance calculation function.
 
-## Uwagi
-W przypadku modyfikacji lub rozszerzenia struktury danych, należy zadbać o zachowanie spójności danych oraz dostarczyć 
-odpowiednią dokumentację w pliku źródłowym.
+## Comments
+In the event of modification or extension of the data structure, care must be taken to maintain data consistency
+appropriate documentation in the source file.
